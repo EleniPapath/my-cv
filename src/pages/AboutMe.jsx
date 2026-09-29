@@ -1,18 +1,33 @@
+import PageShell from './PageShell.jsx'
+
 function AboutMe() {
   return (
-    <>
-      <header>
-        <h1>About Me</h1>
-        <p>Ελένη Παπαθανασίου</p>
-      </header>
-
-      <main>
-        <section className="about-page">
-          <p>Φοιτήτρια Πληροφορικής και Τηλεπικοινωνιών στο ΕΚΠΑ.</p>
-          <a href="./" className="back-button">Back to portfolio</a>
-        </section>
-      </main>
-    </>
+    <PageShell active="about-me" title="Σχετικά με εμένα" subtitle="Λίγα λόγια για την πορεία και τα ενδιαφέροντά μου.">
+      <section className="prose-section">
+        <p className="lead-copy">
+          Είμαι φοιτήτρια Πληροφορικής και Τηλεπικοινωνιών στο Εθνικό και
+          Καποδιστριακό Πανεπιστήμιο Αθηνών. Μέσα από τις σπουδές και τις
+          εργασίες μου έχω αποκτήσει πρακτική εμπειρία σε C/C++, Python, Java,
+          JavaScript, React, SQL και Git.
+        </p>
+        <p>
+          Με ενδιαφέρει να κατανοώ πώς λειτουργούν τα συστήματα σε βάθος και
+          να μετατρέπω σύνθετα προβλήματα σε λύσεις που μπορούν να δοκιμαστούν
+          και να βελτιωθούν. Έχω δουλέψει σε θέματα λειτουργικών συστημάτων,
+          δικτύων, μεταγλωττιστών, αναζήτησης διανυσμάτων και machine learning.
+        </p>
+        <p>
+          Αναζητώ πρακτική άσκηση στην ανάπτυξη λογισμικού, για να συμβάλω σε
+          πραγματικά προϊόντα, να συνεργαστώ με μια ομάδα και να εκπληρώσω την
+          εξάμηνη πρακτική άσκηση του προγράμματος σπουδών μου.
+        </p>
+      </section>
+      <div className="fact-strip">
+        <span><strong>Βάση</strong> Αθήνα, Ελλάδα</span>
+        <span><strong>Πανεπιστήμιο</strong> ΕΚΠΑ</span>
+        <span><strong>Επίπεδο σπουδών</strong> EQF 6</span>
+      </div>
+    </PageShell>
   )
 }
 
