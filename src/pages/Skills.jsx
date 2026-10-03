@@ -5,6 +5,7 @@ const skillGroups = [
   ['Web', 'HTML', 'CSS', 'React'],
   ['Compilers', 'JFlex', 'CUP', 'JavaCC'],
   ['Εργαλεία', 'VS Code', 'Figma', 'GCC / Make', 'Git', 'GitHub', 'PostgreSQL', 'MySQL', 'Linux / Unix', 'StarUML', 'MATLAB'],
+  ['Συνεργασία', 'Προσοχή στη λεπτομέρεια', 'Οργάνωση', 'Μεθοδική επίλυση προβλημάτων', 'Επικοινωνία', 'Ομαδικότητα', 'Προσαρμοστικότητα', 'Γρήγορη μάθηση']
 ]
 
 function Skills() {
@@ -21,10 +22,6 @@ function Skills() {
         ))}
       </section>
       <section className="skill-extras">
-        <div>
-          <h2>Συνεργασία</h2>
-          <p>Προσοχή στη λεπτομέρεια · Οργάνωση · Μεθοδική επίλυση προβλημάτων · Επικοινωνία · Ομαδικότητα · Προσαρμοστικότητα · Γρήγορη μάθηση</p>
-        </div>
         <div>
           <h2>Γλώσσες</h2>
           <p><strong>Ελληνικά</strong> · Μητρική γλώσσα</p>

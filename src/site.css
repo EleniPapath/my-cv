@@ -47,16 +47,25 @@ a { color: inherit; }
 }
 
 .brand-mark {
+  position: relative;
   display: grid;
   width: 2.15rem;
   aspect-ratio: 1;
   place-items: center;
+  overflow: hidden;
   border-radius: 50%;
   color: #fff;
   background: var(--green);
   font-family: "Avenir Next", Avenir, sans-serif;
   font-size: 0.72rem;
   letter-spacing: 0;
+}
+
+.brand-mark img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .site-nav {
@@ -92,6 +101,38 @@ a { color: inherit; }
 .page-heading {
   max-width: 760px;
   margin-bottom: 3.2rem;
+}
+
+.page-heading-home { max-width: none; }
+
+.home-title-row {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.home-title-row h1 {
+  flex: 1;
+  min-width: 0;
+}
+
+.home-title-avatar-frame {
+  flex: 0 0 auto;
+  width: 12rem;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border: 4px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 8px 24px rgb(32 44 41 / 16%);
+}
+
+.home-title-avatar-frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 68%;
+  transform: scale(1.65);
 }
 
 .eyebrow,
@@ -155,6 +196,7 @@ a { color: inherit; }
 .home-note a span { color: var(--gold); }
 
 .home-note {
+  width: 100%;
   padding: 1.4rem 1.5rem 1.6rem;
   border-top: 3px solid var(--gold);
   background: #e8ece4;
@@ -415,6 +457,9 @@ a { color: inherit; }
   .site-main { width: calc(100% - 2.4rem); min-height: calc(100vh - 180px); padding: 2.8rem 0 3.5rem; }
   .page-heading { margin-bottom: 2rem; }
   .page-heading h1 { font-size: 2.45rem; overflow-wrap: anywhere; }
+  .home-title-row { gap: 0.6rem; }
+  .home-title-row h1 { font-size: 1.6rem; }
+  .home-title-avatar-frame { width: 5rem; }
   .page-subtitle { font-size: 0.93rem; }
   .home-intro { grid-template-columns: 1fr; gap: 2rem; padding: 0.5rem 0 2rem; }
   .intro-copy,

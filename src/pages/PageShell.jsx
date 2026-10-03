@@ -12,7 +12,14 @@ function PageShell({ active, title, subtitle, children }) {
     <>
       <header className="site-header">
         <a className="site-brand" href="./" aria-label="Αρχική σελίδα">
-          <span className="brand-mark">ΕΠ</span>
+          <span className="brand-mark">
+            <img
+              src={`${import.meta.env.BASE_URL}avatar.jpg`}
+              alt=""
+              onError={(event) => { event.currentTarget.hidden = true }}
+            />
+            <span>ΕΠ</span>
+          </span>
           <span>Ελένη Παπαθανασίου</span>
         </a>
         <nav className="site-nav" aria-label="Κύρια πλοήγηση">
@@ -29,9 +36,21 @@ function PageShell({ active, title, subtitle, children }) {
       </header>
 
       <main className="site-main">
-        <div className="page-heading">
+        <div className={active === 'home' ? 'page-heading page-heading-home' : 'page-heading'}>
           <p className="eyebrow">Portfolio · 2026</p>
-          <h1>{title}</h1>
+          {active === 'home' ? (
+            <div className="home-title-row">
+              <h1>{title}</h1>
+              <span className="home-title-avatar-frame">
+                <img
+                  src={`${import.meta.env.BASE_URL}avatar.jpg`}
+                  alt="Φωτογραφία της Ελένης"
+                />
+              </span>
+            </div>
+          ) : (
+            <h1>{title}</h1>
+          )}
           {subtitle && <p className="page-subtitle">{subtitle}</p>}
         </div>
         {children}
