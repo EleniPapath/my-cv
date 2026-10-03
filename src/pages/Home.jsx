@@ -1,45 +1,51 @@
 import PageShell from './PageShell.jsx'
+import useLanguage from '../useLanguage.js'
 
 function Home() {
+  const { t } = useLanguage()
+
   return (
     <PageShell
       active="home"
-      title="Ελένη Παπαθανασίου"
-      subtitle="Φοιτήτρια Πληροφορικής και Τηλεπικοινωνιών · ΕΚΠΑ"
+      title={t('home.title')}
+      subtitle={t('home.subtitle')}
     >
       <section className="home-intro">
         <div>
-          <p className="eyebrow">Αναζητώ πρακτική άσκηση</p>
-          <p className="intro-copy">
-            Ασχολούμαι με την ανάπτυξη λογισμικού μέσα από ακαδημαϊκά projects
-            σε λειτουργικά συστήματα, αλγορίθμους, βάσεις δεδομένων και
-            software design. Θέλω να εξελίξω τις γνώσεις μου σε μια ομάδα
-            ανάπτυξης και να αποκτήσω επαγγελματική εμπειρία.
-          </p>
-          <a className="text-link" href="?page=projects">Δες επιλεγμένα έργα <span aria-hidden="true">↗</span></a>
+          <p className="eyebrow">{t('home.eyebrow')}</p>
+          <p className="intro-copy">{t('home.intro')}</p>
+          <a className="text-link" href="?page=projects">{t('home.projectsLink')} <span aria-hidden="true">↗</span></a>
         </div>
-        <aside className="home-note">
-          <span className="note-number">06</span>
-          <p>μήνες πρακτικής άσκησης στο πλαίσιο των σπουδών μου</p>
-          <a href="?page=contact">Επικοινωνία <span aria-hidden="true">↗</span></a>
-        </aside>
+        <div className="home-profile">
+          <span className="home-avatar-frame">
+            <img
+              src={`${import.meta.env.BASE_URL}avatar.jpg`}
+              alt={t('common.avatar')}
+            />
+          </span>
+          <aside className="home-note">
+            <span className="note-number">06</span>
+            <p>{t('home.internship')}</p>
+            <a href="?page=contact">{t('home.contact')} <span aria-hidden="true">↗</span></a>
+          </aside>
+        </div>
       </section>
 
-      <section className="home-highlights" aria-label="Βασικές πληροφορίες">
+      <section className="home-highlights" aria-label={t('home.highlights')}>
         <a href="?page=education">
-          <span className="highlight-label">Σπουδές</span>
-          <strong>Πληροφορική &amp; Τηλεπικοινωνίες</strong>
-          <span>Εθνικό και Καποδιστριακό Πανεπιστήμιο Αθηνών</span>
+          <span className="highlight-label">{t('home.education')}</span>
+          <strong>{t('home.degree')}</strong>
+          <span>{t('home.university')}</span>
         </a>
         <a href="?page=skills">
-          <span className="highlight-label">Τεχνολογίες</span>
+          <span className="highlight-label">{t('home.technologies')}</span>
           <strong>C/C++ · Python · Java · React</strong>
-          <span>Αλγόριθμοι, web και software systems</span>
+          <span>{t('home.techSummary')}</span>
         </a>
         <a href="?page=projects">
-          <span className="highlight-label">Ακαδημαϊκά έργα</span>
-          <strong>11 projects</strong>
-          <span>Από συστήματα και compilers έως machine learning</span>
+          <span className="highlight-label">{t('home.academicProjects')}</span>
+          <strong>{t('home.projectCount')}</strong>
+          <span>{t('home.projectsSummary')}</span>
         </a>
       </section>
     </PageShell>

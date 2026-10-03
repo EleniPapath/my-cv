@@ -1,4 +1,5 @@
 import PageShell from './PageShell.jsx'
+import useLanguage from '../useLanguage.js'
 
 const courses = [
   ['Data Science and Applied Machine Learning with Python', 'Mathesis'],
@@ -8,8 +9,10 @@ const courses = [
 ]
 
 function Seminars() {
+  const { t } = useLanguage()
+
   return (
-    <PageShell active="seminars" title="Σεμινάρια & επιμόρφωση" subtitle="Μαθήματα και πιστοποιήσεις παράλληλα με τις σπουδές μου.">
+    <PageShell active="seminars" title={t('seminars.title')} subtitle={t('seminars.subtitle')}>
       <div className="course-list">
         {courses.map(([course, provider], index) => (
           <article className="course-row" key={course}>

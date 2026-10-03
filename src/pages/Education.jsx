@@ -1,25 +1,28 @@
 import PageShell from './PageShell.jsx'
+import useLanguage from '../useLanguage.js'
 
 function Education() {
+  const { t } = useLanguage()
+
   return (
-    <PageShell active="education" title="Σπουδές" subtitle="Ακαδημαϊκή πορεία και αντικείμενα που έχω εξερευνήσει.">
+    <PageShell active="education" title={t('education.title')} subtitle={t('education.subtitle')}>
       <section className="timeline-entry">
         <div className="timeline-meta">
-          <span>Οκτώβριος 2022 – σήμερα</span>
-          <span>Αθήνα, Ελλάδα</span>
+          <span>{t('education.date')}</span>
+          <span>{t('education.location')}</span>
         </div>
-        <h2>Τμήμα Πληροφορικής και Τηλεπικοινωνιών</h2>
-        <p className="institution">Εθνικό και Καποδιστριακό Πανεπιστήμιο Αθηνών</p>
+        <h2>{t('education.department')}</h2>
+        <p className="institution">{t('education.university')}</p>
         <div className="detail-block">
-          <h3>Σχετικά μαθήματα</h3>
-          <p>Λειτουργικά Συστήματα, Δομές Δεδομένων, Αλγόριθμοι, Βάσεις Δεδομένων, Σχεδίαση Λογισμικού και Αντικειμενοστραφής Προγραμματισμός.</p>
+          <h3>{t('education.courses')}</h3>
+          <p>{t('education.courseList')}</p>
         </div>
         <div className="detail-block">
-          <h3>Ακαδημαϊκά έργα</h3>
-          <p>Εργασίες σε συστήματα, δίκτυα, μεταγλωττιστές, αναζήτηση και machine learning.</p>
+          <h3>{t('education.projects')}</h3>
+          <p>{t('education.projectSummary')}</p>
           <a className="text-link" href="https://github.com/sdi2200135" target="_blank" rel="noreferrer">GitHub · sdi2200135 <span aria-hidden="true">↗</span></a>
         </div>
-        <p className="qualification">Επίπεδο Ευρωπαϊκού Πλαισίου Προσόντων: <strong>EQF 6</strong></p>
+        <p className="qualification">{t('education.qualification')} <strong>EQF 6</strong></p>
       </section>
     </PageShell>
   )

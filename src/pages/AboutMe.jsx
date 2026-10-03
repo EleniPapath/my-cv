@@ -1,31 +1,20 @@
 import PageShell from './PageShell.jsx'
+import useLanguage from '../useLanguage.js'
 
 function AboutMe() {
+  const { t } = useLanguage()
+
   return (
-    <PageShell active="about-me" title="Σχετικά με εμένα" subtitle="Λίγα λόγια για την πορεία και τα ενδιαφέροντά μου.">
+    <PageShell active="about-me" title={t('about.title')} subtitle={t('about.subtitle')}>
       <section className="prose-section">
-        <p className="lead-copy">
-          Είμαι φοιτήτρια Πληροφορικής και Τηλεπικοινωνιών στο Εθνικό και
-          Καποδιστριακό Πανεπιστήμιο Αθηνών. Μέσα από τις σπουδές και τις
-          εργασίες μου έχω αποκτήσει πρακτική εμπειρία σε C/C++, Python, Java,
-          JavaScript, React, SQL και Git.
-        </p>
-        <p>
-          Με ενδιαφέρει να κατανοώ πώς λειτουργούν τα συστήματα σε βάθος και
-          να μετατρέπω σύνθετα προβλήματα σε λύσεις που μπορούν να δοκιμαστούν
-          και να βελτιωθούν. Έχω δουλέψει σε θέματα λειτουργικών συστημάτων,
-          δικτύων, μεταγλωττιστών, αναζήτησης διανυσμάτων και machine learning.
-        </p>
-        <p>
-          Αναζητώ πρακτική άσκηση στην ανάπτυξη λογισμικού, για να συμβάλω σε
-          πραγματικά προϊόντα, να συνεργαστώ με μια ομάδα και να εκπληρώσω την
-          εξάμηνη πρακτική άσκηση του προγράμματος σπουδών μου.
-        </p>
+        <p className="lead-copy">{t('about.intro')}</p>
+        <p>{t('about.paragraph1')}</p>
+        <p>{t('about.paragraph2')}</p>
       </section>
       <div className="fact-strip">
-        <span><strong>Βάση</strong> Αθήνα, Ελλάδα</span>
-        <span><strong>Πανεπιστήμιο</strong> ΕΚΠΑ</span>
-        <span><strong>Επίπεδο σπουδών</strong> EQF 6</span>
+        <span><strong>{t('about.base')}</strong> {t('about.location')}</span>
+        <span><strong>{t('about.universityLabel')}</strong> {t('about.university')}</span>
+        <span><strong>{t('about.studyLevel')}</strong> EQF 6</span>
       </div>
     </PageShell>
   )

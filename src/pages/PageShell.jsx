@@ -1,64 +1,78 @@
+import useLanguage from '../useLanguage.js'
+
 const navigation = [
-  ['about-me', 'Σχετικά'],
-  ['education', 'Σπουδές'],
-  ['projects', 'Έργα'],
-  ['skills', 'Δεξιότητες'],
-  ['seminars', 'Σεμινάρια'],
-  ['contact', 'Επικοινωνία'],
+  ['about-me', 'nav.about'],
+  ['education', 'nav.education'],
+  ['projects', 'nav.projects'],
+  ['skills', 'nav.skills'],
+  ['seminars', 'nav.seminars'],
+  ['contact', 'nav.contact'],
 ]
 
 function PageShell({ active, title, subtitle, children }) {
+  const { language, setLanguage, t } = useLanguage()
+
   return (
     <>
       <header className="site-header">
-        <a className="site-brand" href="./" aria-label="Αρχική σελίδα">
+        <a className="site-brand" href="./" aria-label={t('common.home')}>
           <span className="brand-mark">
             <img
               src={`${import.meta.env.BASE_URL}avatar.jpg`}
               alt=""
               onError={(event) => { event.currentTarget.hidden = true }}
             />
-            <span>ΕΠ</span>
+            <span>{t('common.brandInitials')}</span>
           </span>
-          <span>Ελένη Παπαθανασίου</span>
+          <span>{t('common.brandName')}</span>
         </a>
-        <nav className="site-nav" aria-label="Κύρια πλοήγηση">
-          {navigation.map(([page, label]) => (
+        <nav className="site-nav" aria-label={t('common.navigation')}>
+          {navigation.map(([page, labelKey]) => (
             <a
               key={page}
               href={`?page=${page}`}
               aria-current={active === page ? 'page' : undefined}
             >
-              {label}
+              {t(labelKey)}
             </a>
           ))}
+          <details className="language-menu">
+            <summary aria-label={t('common.languageMenu')} title={t('common.languageMenu')}>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M3 12h18M12 3a15 15 0 0 1 0 18m0-18a15 15 0 0 0 0 18" />
+              </svg>
+            </summary>
+            <div className="language-options">
+              <button type="button" aria-current={language === 'el' ? 'true' : undefined} onClick={(event) => {
+                setLanguage('el')
+                event.currentTarget.closest('details').open = false
+              }}>
+                {t('common.greekLanguage')}
+              </button>
+              <button type="button" aria-current={language === 'en' ? 'true' : undefined} onClick={(event) => {
+                setLanguage('en')
+                event.currentTarget.closest('details').open = false
+              }}>
+                {t('common.englishLanguage')}
+              </button>
+            </div>
+          </details>
         </nav>
       </header>
 
       <main className="site-main">
-        <div className={active === 'home' ? 'page-heading page-heading-home' : 'page-heading'}>
-          <p className="eyebrow">Portfolio · 2026</p>
-          {active === 'home' ? (
-            <div className="home-title-row">
-              <h1>{title}</h1>
-              <span className="home-title-avatar-frame">
-                <img
-                  src={`${import.meta.env.BASE_URL}avatar.jpg`}
-                  alt="Φωτογραφία της Ελένης"
-                />
-              </span>
-            </div>
-          ) : (
-            <h1>{title}</h1>
-          )}
+        <div className="page-heading">
+          <p className="eyebrow">{t('common.portfolio')}</p>
+          <h1>{title}</h1>
           {subtitle && <p className="page-subtitle">{subtitle}</p>}
         </div>
         {children}
       </main>
 
       <footer className="site-footer">
-        <span>Ελένη Παπαθανασίου</span>
-        <a href="mailto:papathelen@gmail.com">papathelen@gmail.com</a>
+        <span>{t('home.title')}</span>
+        <a href="mailto:papathelen@gmail.com">{t('common.footerEmail')}</a>
       </footer>
     </>
   )

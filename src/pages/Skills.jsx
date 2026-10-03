@@ -1,16 +1,18 @@
 import PageShell from './PageShell.jsx'
-
-const skillGroups = [
-  ['Προγραμματισμός', 'C', 'C++', 'Python', 'Java', 'JavaScript', 'SQL'],
-  ['Web', 'HTML', 'CSS', 'React'],
-  ['Compilers', 'JFlex', 'CUP', 'JavaCC'],
-  ['Εργαλεία', 'VS Code', 'Figma', 'GCC / Make', 'Git', 'GitHub', 'PostgreSQL', 'MySQL', 'Linux / Unix', 'StarUML', 'MATLAB'],
-  ['Συνεργασία', 'Προσοχή στη λεπτομέρεια', 'Οργάνωση', 'Μεθοδική επίλυση προβλημάτων', 'Επικοινωνία', 'Ομαδικότητα', 'Προσαρμοστικότητα', 'Γρήγορη μάθηση']
-]
+import useLanguage from '../useLanguage.js'
 
 function Skills() {
+  const { t } = useLanguage()
+  const skillGroups = [
+    [t('skills.programming'), 'C', 'C++', 'Python', 'Java', 'JavaScript', 'SQL'],
+    ['Web', 'HTML', 'CSS', 'React'],
+    ['Compilers', 'JFlex', 'CUP', 'JavaCC'],
+    [t('skills.tools'), 'VS Code', 'Figma', 'GCC / Make', 'Git', 'GitHub', 'PostgreSQL', 'MySQL', 'Linux / Unix', 'StarUML', 'MATLAB'],
+    [t('skills.collaboration'), ...t('skills.softSkills')],
+  ]
+
   return (
-    <PageShell active="skills" title="Δεξιότητες" subtitle="Τεχνολογίες και τρόποι συνεργασίας που έχω αναπτύξει.">
+    <PageShell active="skills" title={t('skills.title')} subtitle={t('skills.subtitle')}>
       <section className="skill-groups">
         {skillGroups.map(([group, ...skills]) => (
           <div className="skill-row" key={group}>
@@ -23,9 +25,9 @@ function Skills() {
       </section>
       <section className="skill-extras">
         <div>
-          <h2>Γλώσσες</h2>
-          <p><strong>Ελληνικά</strong> · Μητρική γλώσσα</p>
-          <p><strong>Αγγλικά</strong> · B2 (κατανόηση, ομιλία και γραφή)</p>
+          <h2>{t('skills.languages')}</h2>
+          <p><strong>{t('skills.greek')}</strong> · {t('skills.native')}</p>
+          <p><strong>{t('skills.english')}</strong> · {t('skills.englishLevel')}</p>
         </div>
       </section>
     </PageShell>
